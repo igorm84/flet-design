@@ -1,0 +1,176 @@
+@import "../../style/theme";
+@import "mixins";
+$prefix: #{$classPrefix}-btn-;
+
+@mixin subtle-shadow {
+  -webkit-box-shadow: 0 3.7px 11px 0 rgba(0, 0, 0, 0.07);
+  box-shadow: 0 3.7px 11px 0 rgba(0, 0, 0, 0.07);
+}
+
+@mixin hover-shadow {
+  -webkit-box-shadow: 0 3.7px 17px 0 rgba(0, 0, 0, 0.13);
+  box-shadow: 0 3.7px 17px 0 rgba(0, 0, 0, 0.13);
+}
+
+.#{$classPrefix}-btn {
+  margin: 0;
+  display: inline-block;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  border: 2px solid transparent;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+  &:not(.#{$prefix}outlined) {
+    &:not(:disabled) {
+      &:not(.#{$prefix}ghost) {
+        &:hover {
+          @include hover-shadow;
+        }
+        &:not(:hover) {
+          @include subtle-shadow;
+        }
+      }
+    }
+  }
+}
+.#{$prefix}block {
+  display: block;
+  width: 100%;
+}
+
+// Button types
+$types: (
+  "primary": $color-primary,
+  "secondary": $color-secondary,
+  "success": $color-success,
+  "danger": $color-danger,
+  "warning": $color-warning,
+  "info": $color-info,
+);
+@each $name, $color in $types {
+  .#{$prefix}#{$name}:not(:disabled) {
+    @include buttonColor(
+      $prefix,
+      $color-white,
+      $color,
+      colorLight($color),
+      colorLight($color, true)
+    );
+  }
+}
+
+.#{$prefix}default:not(:disabled) {
+  &:not(.#{$prefix}outlined) {
+    background-color: $color-default;
+    color: $color-default-dark;
+    border: 2px solid $color-default;
+  }
+  &.#{$prefix}outlined {
+    background: transparent;
+    color: $color-default-dark;
+    border: 2px solid $color-default-dark;
+    &:hover {
+      color: $color-default-darkH;
+      border-color: $color-default-darkH;
+    }
+  }
+  &.#{$prefix}ghost {
+    background: transparent;
+    border-color: transparent;
+    &:hover {
+      background: $color-default;
+      border-color: $color-default;
+    }
+  }
+}
+
+.#{$prefix}dark:not(:disabled) {
+  &:not(.#{$prefix}outlined) {
+    background-color: $color-dark;
+    color: $color-default;
+    border: 2px solid $color-dark;
+  }
+  &.#{$prefix}outlined {
+    background: transparent;
+    color: $color-dark;
+    border: 2px solid $color-dark;
+    &:hover {
+      color: $color-darkH;
+      border-color: $color-darkH;
+    }
+  }
+  &.#{$prefix}ghost {
+    background: transparent;
+    border-color: transparent;
+    color: $color-dark;
+    &:hover {
+      color: $color-dark;
+      background: transparent;
+      border-color: transparent;
+    }
+  }
+}
+
+// Button sizes
+.#{$prefix}sm,
+.#{$prefix}small {
+  padding: 0.5em 0.7em;
+  font-size: 14px;
+  &.#{$prefix}fat {
+    padding: 0.5em 1.3em;
+  }
+}
+
+.#{$prefix}md,
+.#{$prefix}medium {
+  padding: 0.6em 1em;
+  font-size: 15px;
+  &.#{$prefix}rounded {
+    padding: 0.6em 1.3em;
+  }
+  &.#{$prefix}fat {
+    padding: 0.6em 1.5em;
+  }
+}
+
+.#{$prefix}lg,
+.#{$prefix}large {
+  padding: 1em 1.7em;
+  font-size: 16px;
+  &.#{$prefix}fat {
+    padding: 1em 2.3em;
+  }
+}
+
+// Button shapes
+.#{$prefix}square {
+  border-radius: 2px;
+}
+.#{$prefix}fat {
+  border-radius: 8px;
+}
+
+.#{$prefix}rounded {
+  border-radius: 1.7em;
+}
+
+// Button Icon
+.#{$prefix}icon-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .#{$prefix}icon {
+    display: flex;
+    align-items: center;
+  }
+  .#{$prefix}icon-left {
+    margin-right: 6px;
+  }
+  .#{$prefix}icon-right {
+    margin-left: 6px;
+  }
+}

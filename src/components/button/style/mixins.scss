@@ -1,0 +1,30 @@
+@mixin buttonColor($prefix, $color, $fill, $fillH, $fillLH) {
+  &:not(.#{$prefix}outlined) {
+    background-color: $fill;
+    color: $color;
+    border: 2px solid $fill;
+    &:hover {
+      border-color: $fillH;
+      background-color: $fillH;
+    }
+  }
+  &.#{$prefix}outlined {
+    background: transparent;
+    color: $fill;
+    border: 2px solid $fill;
+    &:hover {
+      color: $fillLH;
+      border-color: $fillLH;
+    }
+  }
+  &.#{$prefix}ghost {
+    background: transparent;
+    border-color: transparent;
+    color: $fill;
+    &:hover {
+      color: $fillH;
+      background: transparent;
+      border-color: transparent;
+    }
+  }
+}
