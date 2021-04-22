@@ -1,14 +1,15 @@
 import React from "react";
+import classNames from "classnames";
+import { classPrefix } from "../style/classes";
 import { ButtonProps, ButtonIconProps } from "./types";
 import "./style/index.scss";
-import className from "classnames";
-import { classPrefix } from "../../styles/classes";
+import { LoadingIcon } from "..";
 
 const prefix = classPrefix + "-btn";
 
 export function ButtonIcon(props: ButtonIconProps) {
   const side = props.config?.side === "right" ? "right" : "left";
-  const classes = className(`${prefix}-icon`, {
+  const classes = classNames(`${prefix}-icon`, {
     [`${prefix}-icon-${side}`]: true,
   });
   const icon = <div className={classes}>{props.icon}</div>;
@@ -20,17 +21,23 @@ export function ButtonIcon(props: ButtonIconProps) {
 }
 
 function Button(props: ButtonProps) {
-  const classes = className(`${prefix}`, {
+  const classes = classNames(`${prefix}`, {
     [`${prefix}-${props.type}`]: props.type,
     [`${prefix}-${props.size}`]: props.size,
     [`${prefix}-block`]: props.block,
     [`${prefix}-${props.shape}`]: props.shape,
     [`${prefix}-outlined`]: props.outlined,
     [`${prefix}-ghost`]: props.ghost,
+    [`${prefix}-loading`]: props.loading,
+    ...(props.className ? { [`${props.className}`]: props.className } : {}),
   });
-
-  const children = props.icon ? (
-    <ButtonIcon icon={props.icon} config={props.iconConfig}>
+  const iconProp = props.loading ? (
+    <LoadingIcon style={{ marginLeft: -4, marginRight: 2, fontSize: 14 }} />
+  ) : (
+    props.icon
+  );
+  const children = iconProp ? (
+    <ButtonIcon icon={iconProp} config={props.iconConfig}>
       {props.children}
     </ButtonIcon>
   ) : (
