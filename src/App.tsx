@@ -10,9 +10,15 @@ function App() {
     <div className="app">
       <div className="wrapper">
         <div className="content">
-          <div className="title">Flet Design components</div>
+          <div className="title">
+            <img
+              src="https://fletd.s3.amazonaws.com/fletd_vlogo.svg"
+              width="200"
+              className="logo"
+            />
+          </div>
           <div className="description">A React UI Library</div>
-          <div style={{ marginTop: 10 }}>
+          <div style={{ marginTop: 30 }}>
             <Button type="default" className="mh10" {...btnProps}>
               Default
             </Button>

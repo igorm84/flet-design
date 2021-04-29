@@ -1,5 +1,12 @@
-# FletDesign
+<p align="center">
+  <a href="https://flet.design">
+    <img width="200" src="https://fletd.s3.amazonaws.com/fletd_vlogo.svg">
+  </a>
+</p>
+<h1 align="center">FletDesign</h1>
+<p align="center">
 A React UI library with many solutions and components
+</p>
 ### This project is still under development
 If you want to support in development, <a href="mailto:igormodesto.jf@gmail.com">mail me</a>
 
