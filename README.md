@@ -3,11 +3,11 @@
     <img width="200" src="https://fletd.s3.amazonaws.com/fletd_vlogo.svg">
   </a>
 </p>
-<p align="center">
+<div align="center">
 A React UI library with many solutions and components
-</p>
 <h3>This project is still under development</h3>
 If you want to support in development, <a href="mailto:igormodesto.jf@gmail.com">mail me</a>
+</div>
 
 ## Button usage
 
