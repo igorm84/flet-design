@@ -6,7 +6,7 @@
 <p align="center">
 A React UI library with many solutions and components
 </p>
-### This project is still under development
+<h3>This project is still under development</h3>
 If you want to support in development, <a href="mailto:igormodesto.jf@gmail.com">mail me</a>
 
 ## Button usage
